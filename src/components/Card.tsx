@@ -1,4 +1,3 @@
-const foto = require("../pp.jpg")
 
 const Card = ({image, id, name, location}: any) => {
     return(
