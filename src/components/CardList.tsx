@@ -7,14 +7,16 @@ import {
 } from "@apollo/client";
 import Card from "./Card";
 
-const CHARACTERS = gql`
-query GetCharacters {
-  characters{results{id, name, status,image, location{name}}} 
+const CHARACTERS =  gql`
+query GetCharacters($pageNum: Int, $filter: String) {
+  characters(page: $pageNum, filter: {name: $filter}){results{id, name, status,image, location{name}}} 
 }
 `;
 
-function CardList() {
-  const { loading, error, data } = useQuery(CHARACTERS);
+function CardList({pageNum, filter}: any) {
+  const { loading, error, data } = useQuery(CHARACTERS,{
+    variables: {pageNum, filter}
+  });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
