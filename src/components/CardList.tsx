@@ -7,14 +7,14 @@ import {
 } from "@apollo/client";
 import Card from "./Card";
 
-const EXCHANGE_RATES = gql`
-query GetExchangeRates {
+const CHARACTERS = gql`
+query GetCharacters {
   characters{results{id, name, status,image, location{name}}} 
 }
 `;
 
 function CardList() {
-  const { loading, error, data } = useQuery(EXCHANGE_RATES);
+  const { loading, error, data } = useQuery(CHARACTERS);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;

@@ -1,15 +1,13 @@
 import "./App.css";
 import CardList from "./components/CardList";
-
-const filterImg = require("./filter.png")
+import FilterModal from "./components/FilterModal";
+import Header from "./components/Header";
 
 function App() {
   return <div className="App">
-    <div className="header">
-    <h1>Rick and Morty</h1>
-    <img className="filter" src={filterImg}/>
-    </div>
+    <Header/>
     <CardList/>
+    <FilterModal showModal={true} />
   </div>;
 }
 

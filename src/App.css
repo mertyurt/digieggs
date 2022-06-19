@@ -2,9 +2,13 @@
   font-family: 'Roboto'
 }
 
-.App {
+.App {  
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 5rem;
-  margin: 0%;
 }
 
 h1 {
@@ -17,18 +21,25 @@ span{
 
 .Card {
   border-radius: 1rem;
-  height: 15rem;
-  width: 45rem;
-  margin: 1rem auto ;
+  height: 11rem;
+  width: 35rem;
   display: flex;
   overflow: hidden;
   box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.1);
+  margin: 3rem 3rem 0px 0px
 }
 
 .header{
   display: flex;
-  max-height: min-content;
-  align-items:flex-end;
+  width: 70rem;
+  justify-content: flex-start;
+  align-items: center;
+  
+}
+
+.head{
+  
+  display: flex;
 }
 
 .img{
@@ -52,5 +63,108 @@ span{
 .card-list {
   display: flex;
   flex-wrap: wrap;
-  
+  justify-content: center;
+  align-items: center;
+}
+
+.modal{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container{
+  width: 30rem;
+  height: auto;
+  background-color: white;
+  border-radius: 1rem;
+  margin: 2rem;
+  font-size: 16px;
+}
+
+.modal-header{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.modal-content{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.modal-content label{
+  display: flex;
+  justify-content: space-between;
+}
+
+button{
+  background-color: transparent;
+  border: none;
+}
+
+.close {
+  display: flex;
+  align-items: center;
+  opacity: 0.3;
+  margin: 1rem;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before, .close:after {
+  position: absolute;
+  content: ' ';
+  height: 1rem;
+  width: 2px;
+  background-color: #333;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
+/*hide default radio button*/
+.modal-content input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position:relative;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.modal-content input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.modal-content .checkmark:after {
+  top: 4px;
+	left: 4px;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background:#0057FF;
+
 }
