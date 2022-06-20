@@ -2,13 +2,17 @@
   font-family: 'Roboto'
 }
 
-.App {  
+.root{
+  margin: 0%;
+  padding: 0%;
+}
 
+.App {  
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 5rem;
 }
 
 h1 {
@@ -22,23 +26,22 @@ span{
 .Card {
   border-radius: 1rem;
   height: 11rem;
-  width: 35rem;
+  width: 75vh;
+  margin: 1rem auto;
   display: flex;
   overflow: hidden;
   box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.1);
-  margin: 3rem 3rem 0px 0px
 }
 
 .header{
   display: flex;
-  width: 70rem;
   justify-content: flex-start;
   align-items: center;
+  width: 90%;
   
 }
 
 .head{
-  
   display: flex;
 }
 
@@ -61,6 +64,7 @@ span{
 }
 
 .card-list {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

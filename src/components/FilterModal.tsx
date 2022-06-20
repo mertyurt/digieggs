@@ -1,4 +1,4 @@
-function FilterModal({show, handleClose, setFilter}: any) {
+function FilterModal({show, handleClose, setFilter, options}: any) {
 
   const handleFilter = (event: any) => {
     console.log(event.target.value)
@@ -14,14 +14,12 @@ function FilterModal({show, handleClose, setFilter}: any) {
       </div>
       <hr/>
       <div className="modal-content" onChange={(e) => handleFilter(e)}>
-        <label style={{marginBottom: "1rem"}}>
-          Rick <input type="radio" name="filter" value="Rick"/>
+        {options.map((item: string, index: number) => (
+          <label style={{marginBottom: "1rem"}} key={index}>
+          {item} <input type="radio" name="filter" value={item}/>
           <span className="checkmark"></span>  
         </label>
-        <label>
-          Morty <input type="radio" name="filter" value="Morty"/>
-          <span className="checkmark"></span>  
-        </label>
+        ))}
       </div>
     </div>
   </div> : <></>;
