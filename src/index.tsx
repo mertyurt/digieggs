@@ -11,6 +11,25 @@ import {
   gql
 } from "@apollo/client";
 
+const cache = new InMemoryCache({
+  typePolicies: {
+    Query: {
+      fields: {
+        characters: {
+          keyArgs: false,
+
+          // Concatenate the incoming list items with
+          // the existing list items.
+          merge(existing = [], incoming) {
+            return [...existing, ...incoming.characters.results];
+          
+          },
+        }
+      }
+    }
+  }
+})
+
 const client = new ApolloClient({
   uri: 'https://rickandmortyapi.com/graphql',
   cache: new InMemoryCache()
