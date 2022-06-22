@@ -23,11 +23,9 @@ function CardList({ loading, error, data, lastItemRef}: any) {
 
   return (
     <div className="card-list">
-      {console.log(`data`, data)}
+      {console.log(data)}
     {data.length && data.map((dataArr: any, dataArrIndex: number) => {
       return dataArr.map((item: any, index: number) => {
-        console.log(`item`, item)
-        console.log(`index`, index)
         if (data[dataArrIndex].length === index + 1 && data.length === dataArrIndex +1 ){
           return <LastItem ref={lastItemRef} key={item.id}><Card id={item.id} name={item.name} image={item.image} location={item.location.name}/></LastItem>
         }else{

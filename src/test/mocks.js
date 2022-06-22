@@ -1,6 +1,6 @@
 import { CHARACTERS } from "../App";
 
-const mocks = [
+const mock = [
   {
     request: {
       query: CHARACTERS,
@@ -207,4 +207,208 @@ const errMock = [
   },
 ];
 
-export { mocks, errMock };
+const rickMock = [
+  {
+    request: {
+      query: CHARACTERS,
+      variables: { pageNum: 1, filter: "rick" },
+    },
+    result: {
+      data: {
+        characters: {
+          results: [
+            {
+              id: "1",
+              name: "Rick Sanchez",
+              status: "Alive",
+              image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+              location: {
+                name: "Citadel of Ricks",
+              },
+            },
+            {
+              id: "8",
+              name: "Adjudicator Rick",
+              status: "Dead",
+              image: "https://rickandmortyapi.com/api/character/avatar/8.jpeg",
+              location: {
+                name: "Citadel of Ricks",
+              },
+            },
+            {
+              id: "15",
+              name: "Alien Rick",
+              status: "unknown",
+              image: "https://rickandmortyapi.com/api/character/avatar/15.jpeg",
+              location: {
+                name: "Citadel of Ricks",
+              },
+            },
+            {
+              id: "19",
+              name: "Antenna Rick",
+              status: "unknown",
+              image: "https://rickandmortyapi.com/api/character/avatar/19.jpeg",
+              location: {
+                name: "unknown",
+              },
+            },
+            {
+              id: "22",
+              name: "Aqua Rick",
+              status: "unknown",
+              image: "https://rickandmortyapi.com/api/character/avatar/22.jpeg",
+              location: {
+                name: "Citadel of Ricks",
+              },
+            },
+            {
+              id: "48",
+              name: "Black Rick",
+              status: "Alive",
+              image: "https://rickandmortyapi.com/api/character/avatar/48.jpeg",
+              location: {
+                name: "Citadel of Ricks",
+              },
+            },
+            {
+              id: "56",
+              name: "Bootleg Portal Chemist Rick",
+              status: "Dead",
+              image: "https://rickandmortyapi.com/api/character/avatar/56.jpeg",
+              location: {
+                name: "Citadel of Ricks",
+              },
+            },
+            {
+              id: "69",
+              name: "Commander Rick",
+              status: "Dead",
+              image: "https://rickandmortyapi.com/api/character/avatar/69.jpeg",
+              location: {
+                name: "Citadel of Ricks",
+              },
+            },
+            {
+              id: "72",
+              name: "Cool Rick",
+              status: "Alive",
+              image: "https://rickandmortyapi.com/api/character/avatar/72.jpeg",
+              location: {
+                name: "Citadel of Ricks",
+              },
+            },
+            {
+              id: "74",
+              name: "Cop Rick",
+              status: "Alive",
+              image: "https://rickandmortyapi.com/api/character/avatar/74.jpeg",
+              location: {
+                name: "Citadel of Ricks",
+              },
+            },
+            {
+              id: "78",
+              name: "Cowboy Rick",
+              status: "Alive",
+              image: "https://rickandmortyapi.com/api/character/avatar/78.jpeg",
+              location: {
+                name: "Citadel of Ricks",
+              },
+            },
+            {
+              id: "82",
+              name: "Cronenberg Rick",
+              status: "unknown",
+              image: "https://rickandmortyapi.com/api/character/avatar/82.jpeg",
+              location: {
+                name: "Earth (C-137)",
+              },
+            },
+            {
+              id: "86",
+              name: "Cyclops Rick",
+              status: "Dead",
+              image: "https://rickandmortyapi.com/api/character/avatar/86.jpeg",
+              location: {
+                name: "Citadel of Ricks",
+              },
+            },
+            {
+              id: "103",
+              name: "Doofus Rick",
+              status: "unknown",
+              image:
+                "https://rickandmortyapi.com/api/character/avatar/103.jpeg",
+              location: {
+                name: "Earth (Replacement Dimension)",
+              },
+            },
+            {
+              id: "119",
+              name: "Evil Rick",
+              status: "Dead",
+              image:
+                "https://rickandmortyapi.com/api/character/avatar/119.jpeg",
+              location: {
+                name: "Citadel of Ricks",
+              },
+            },
+            {
+              id: "135",
+              name: "Garment District Rick",
+              status: "Dead",
+              image:
+                "https://rickandmortyapi.com/api/character/avatar/135.jpeg",
+              location: {
+                name: "Citadel of Ricks",
+              },
+            },
+            {
+              id: "164",
+              name: "Insurance Rick",
+              status: "unknown",
+              image:
+                "https://rickandmortyapi.com/api/character/avatar/164.jpeg",
+              location: {
+                name: "Citadel of Ricks",
+              },
+            },
+            {
+              id: "165",
+              name: "Investigator Rick",
+              status: "Dead",
+              image:
+                "https://rickandmortyapi.com/api/character/avatar/165.jpeg",
+              location: {
+                name: "Citadel of Ricks",
+              },
+            },
+            {
+              id: "187",
+              name: "Juggling Rick",
+              status: "unknown",
+              image:
+                "https://rickandmortyapi.com/api/character/avatar/187.jpeg",
+              location: {
+                name: "Citadel of Ricks",
+              },
+            },
+            {
+              id: "215",
+              name: "Maximums Rickimus",
+              status: "Dead",
+              image:
+                "https://rickandmortyapi.com/api/character/avatar/215.jpeg",
+              location: {
+                name: "Rick's Memories",
+              },
+            },
+          ],
+        },
+      },
+    },
+  },
+];
+
+export { mock, errMock, rickMock };

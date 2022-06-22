@@ -26,8 +26,12 @@ function App() {
     if (data) setitems((items) => {
       return [...items, data.characters.results]
     })
-    console.log(data)
   }, [data])
+  
+  const handleFilterChange = (value: string) => {
+    setFilter(value)
+    setitems([]);
+  }
   
   const observer = useRef<IntersectionObserver>();
   
@@ -37,11 +41,9 @@ function App() {
     observer.current = new IntersectionObserver(entries => {
       if(entries[0].isIntersecting){
         setPageNum(prevPageNum => prevPageNum + 1)
-        console.log('visible')
       }
     })
     if (node) observer.current!.observe(node as Element)
-    console.log(node)
   },[loading ])
   
 
@@ -53,7 +55,7 @@ function App() {
       </div>
     </div>
     <CardList data={items} error={error} loading={loading} fetchMore={fetchMore} lastItemRef={lastItemRef}/>
-    <FilterModal show={isVisible} handleClose={toggleVisible} setFilter={setFilter} options={["Rick", "Morty"]}/>
+    <FilterModal show={isVisible} handleClose={toggleVisible} setFilter={handleFilterChange} options={["Rick", "Morty"]}/>
   </div>;
 }
 

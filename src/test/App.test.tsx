@@ -1,18 +1,15 @@
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import TestRenderer from 'react-test-renderer';
+
 import { MockedProvider } from "@apollo/client/testing";
-import './test/jest/__mocks__/intersectionObserverMock'
-import { act } from 'react-dom/test-utils';
-import { fireEvent, render, screen } from "@testing-library/react";
-import {logRoles} from '@testing-library/dom'
-import {errMock, mocks} from "./test/mocks"
-import App from "./App";
-import { wait } from "@testing-library/user-event/dist/utils";
+import './jest/__mocks__/intersectionObserverMock'
+import { render, screen } from "@testing-library/react";
+import userEvent from '@testing-library/user-event';
+import {errMock, mock, rickMock} from "./mocks"
+import App from "../App";
 
 describe("App.tsx", ()=>{
   describe("initial render", () => {
     beforeEach(()=>{
-      render(<MockedProvider mocks={mocks}><App /></MockedProvider>);
+      render(<MockedProvider mocks={mock}><App /></MockedProvider>);
     })
     
     it('renders header as "Rick"', () => {
@@ -50,7 +47,33 @@ describe("App.tsx", ()=>{
       })
     })
 
-    it.todo("infinite scroll")
+    describe("render filter modal", ()=>{
+      beforeEach(()=>{
+        render(
+          <MockedProvider mocks={rickMock} addTypename={false}>
+            <App />
+          </MockedProvider>
+        );
+
+        const filterBtn = screen.getByRole("button")
+        userEvent.click(filterBtn)
+      })
+  
+        it('click filter button', async ()=>{
+          
+          expect(await screen.findByText(/filter/i)).toBeInTheDocument();
+        })
+
+        it("checks radio button", async()=> {
+          const radioBtns = screen.getAllByTestId("radio-button");
+          userEvent.click(radioBtns[0])
+
+         
+          expect(screen.getByText(/rick/i)).toBeInTheDocument();
+        })        
+
+       
+      })
 
   })
   
