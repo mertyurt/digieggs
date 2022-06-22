@@ -1,7 +1,7 @@
 
 const Card = ({image, id, name, location}: any) => {
     return(
-        <div className="Card">
+        <div className="Card" data-testid="card">
             <img className="img" src={image} alt="character-img"/>
             <div className="card-text">
               <p>#id: <span>{id}</span></p>

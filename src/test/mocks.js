@@ -1,6 +1,6 @@
 import { CHARACTERS } from "../App";
 
-export const mocks = [
+const mocks = [
   {
     request: {
       query: CHARACTERS,
@@ -195,11 +195,16 @@ export const mocks = [
       },
     },
   },
-  /*{
+];
+
+const errMock = [
+  {
     request: {
-      query: GET_DOG,
-      variables: { index: 8 },
+      query: CHARACTERS,
+      variables: { pageNum: -1, filter: "" },
     },
     error: new Error("Something went wrong"),
-  },*/
+  },
 ];
+
+export { mocks, errMock };

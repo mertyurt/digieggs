@@ -49,7 +49,7 @@ function App() {
     <div className="header">
       <div className="head">
         <h1>{filter === "" ? "Rick and Morty": filter}</h1>
-        <button onClick={toggleVisible}><img className="filter" src={filterImg} alt="filter icon"/>  </button>
+        <button onClick={toggleVisible} ><img className="filter" src={filterImg} alt="filter icon"/>  </button>
       </div>
     </div>
     <CardList data={items} error={error} loading={loading} fetchMore={fetchMore} lastItemRef={lastItemRef}/>
