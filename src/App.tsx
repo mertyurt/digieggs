@@ -7,17 +7,7 @@ import FilterModal from "./components/FilterModal";
 import useToggle from "./useToggle";
 const filterImg = require("./filter.png")
 
-type CharacterItem = {
-  id: String,
-  name: String,
-  status: String,
-  image: String,
-  location: {
-    name: String
-  }
-}
-
-const CHARACTERS =  gql`
+export const CHARACTERS =  gql`
 query GetCharacters($pageNum: Int, $filter: String) {
   characters(page: $pageNum, filter: {name: $filter}){results{id, name, status,image, location{name}}} 
 }
@@ -27,13 +17,13 @@ function App() {
   const [isVisible, toggleVisible] = useToggle(false)
   const [filter, setFilter] = useState("")
   const [pageNum, setPageNum] = useState(1);
-  const [items, setitems] = useState<CharacterItem[]>([])
+  const [items, setitems] = useState<any[]>([])
   const  { data, loading, error,fetchMore } = useQuery(CHARACTERS,{
     variables: {pageNum, filter}
   });
 
   useEffect(() => {
-    if (data) setitems(items => {
+    if (data) setitems((items) => {
       return [...items, data.characters.results]
     })
     console.log(data)
